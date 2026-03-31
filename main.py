@@ -20,11 +20,7 @@ logging.basicConfig(filename='bot_logs.txt', encoding='utf-8', level=logging.INF
 logger = logging.getLogger(__name__)
 
 # Константы для подключения к БД
-DB_USER = 'postgres'
-DB_PASSWORD = 'postgres'
-DB_HOST = 'localhost'
-DB_PORT = '5432'
-DB_NAME = 'english'
+from keys import DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME
 
 basic_words = {
     'алгоритм': 'algorithm',
@@ -66,7 +62,7 @@ for rus_word, eng_translate in basic_words.items():
         DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME, system_user_id, word_id
     )
 
-token_bot = '8724559633:AAE6ObpDt37U47mtBwHLtnPsggeG5IWWl38'
+from keys import token_bot
 bot = TeleBot(token_bot)
 
 @bot.message_handler(commands=['start'])
